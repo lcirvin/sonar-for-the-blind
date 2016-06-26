@@ -15,6 +15,5 @@ cat /boot/cmdline.txt | sed 's/$/ fastboot noswap ro/' > /boot/cmdline.txt
 rm -rf /var/lib/dhcp /var/run /var/spool /var/lock
 ln -s /tmp /var/lib/dhcp; ln -s /tmp /var/run; ln -s /tmp /var/spool; ln -s /tmp /var/lock
 
-sed `cat /etc/systemd/system/dhcpcd5 | grep -n "PIDFile=/run/dhcpcd.pid" | sed "s/:/ /" | awk '{print $1}'`s,run,var/run, > /etc/systemd/system/dhcpcd5 
-
+sed `cat /etc/systemd/system/dhcpcd5 | grep -n "PIDFile=/run/dhcpcd.pid" | sed "s/:/ /" | awk '{print $1}'`s,run,var/run, /etc/systemd/system/dhcpcd5 > /etc/systemd/system/dhcpcd5 
 

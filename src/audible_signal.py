@@ -7,7 +7,6 @@ PyAudio = pyaudio.PyAudio
 def init_audio(distance):
 	BITRATE = 16000
 
-	#FREQUENCY = 261.63
 	FREQUENCY = 580 
 	LENGTH = 0.250
 
