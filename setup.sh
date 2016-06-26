@@ -7,7 +7,7 @@ amixer sset 'PCM' 100%
 
 mkdir /usr/local/bin/sonar
 cp src/* /usr/local/bin/sonar
-sed `cat /etc/rc.local | grep -n "exit 0" | sed "s/:/ /" | awk '{print $1}'`s,exit 0,python /usr/local/bin/sonar/main.py &, /etc/rc.local > /etc/rc.local 
+sed "`cat /etc/rc.local | grep -n \"exit 0\" | sed \"s/:/ /\" | awk '{print $1}' | tail -n1`s,exit 0,python /usr/local/bin/sonar/main.py \&," /etc/rc.local > /etc/rc.local 
 echo "exit 0" >> /etc/rc.local
 
 apt-get -y remove --purge wolfram-engine triggerhappy anacron logrotate dbus dphys-swapfile xserver-common lightdm
